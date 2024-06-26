@@ -3,6 +3,8 @@ const userRoutes = require("./routes/user");
 const courseRoutes = require('./routes/courses');
 const quizRoutes = require('./routes/quiz');
 const studentscoreRoutes = require('./routes/studentscore');
+const zoomApp = require('./routes/zoomapp');
+const book = require('./routes/book');
 const mongoose = require("mongoose");
 require("dotenv/config");
 var cors = require("cors");
@@ -31,12 +33,15 @@ app.use("/api/user", userRoutes);
 app.use(express.static('public/images'));
 app.use(express.static('public/pdfs'));
 app.use(express.static('public/videos'));
+//app.use('/public', express.static(path.join(__dirname, 'public')));
 
 app.use('/courses', courseRoutes);
 
 app.use("/quiz",quizRoutes);
 
 app.use('/studentscore', studentscoreRoutes);
+app.use('/zoomapp', zoomApp);
+app.use('/api/books', book);
 
 
 app.listen(PORT, () => console.log(`Running API on ${PORT}`))
