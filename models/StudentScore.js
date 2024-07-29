@@ -17,6 +17,10 @@ const studentScoreSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  courseTitle: {
+    type: String,
+    required: true,
+  }
 });
 
 const StudentScore = mongoose.model("StudentScore", studentScoreSchema);

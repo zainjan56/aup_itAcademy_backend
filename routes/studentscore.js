@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 
 router.post("/scores", async (req, res) => {
 
-  const { studentid, studentname, score, courseCode } = req.body;
+  const { studentid, studentname, score, courseCode, courseTitle } = req.body;
 
   try {
     let studentScore = await StudentScore.findOne({ studentid, courseCode });
@@ -21,6 +21,7 @@ router.post("/scores", async (req, res) => {
         studentname,
         score,
         courseCode,
+        courseTitle
       });
     }
 
